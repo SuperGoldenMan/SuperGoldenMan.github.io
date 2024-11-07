@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detroit Pistons Fan Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Fjalla+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet'>
+</head>
+<body>
+
+  <header class="navbar">
+    <nav id="navigation-scrolling">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#team">The Squad</a></li>
+            <li><a href="#standings">Standings</a></li>
+            <li><a href="#contacts">313</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="content" id="home">
+      <h1 id="screen-title">Welcome Pistons Fan</h1>
+      <h2>To your source for the latest Pistons news, game fixtures, and player stats.</h2>
+      <div class="fixture-bar">
+    <div class="fixtures last-results">
+        <h3>Last Games</h3>
+        <div id="last-results" class="games-container"></div>
+    </div>
+    <div class="fixtures upcoming-games">
+        <h3>Next Games</h3>
+        <div id="upcoming-games" class="games-container"></div>
+    </div>
+</div>
+
+    </div><!-- end of home -->
+    
+    <div class="content" id="team">
+    <h1 id="screen-title">Meet The Squad</h1>
+    <div class="player-grid">
+        <div class="player-item" data-player-id="cunnica01">
+            <span class="player-number">2</span>
+            <img src="assets/player-headshots/cade-cunningham.png" alt="Cade Cunningham" />
+            <span class="player-name">Cade Cunningham</span>
+        </div>
+        <div class="player-item" data-player-id="iveyja01">
+            <span class="player-number">23</span>
+            <img src="assets/player-headshots/jaden-ivey.png" alt="Jaden Ivey" />
+            <span class="player-name">Jaden Ivey</span>
+        </div>
+        <div class="player-item" data-player-id="beaslma01">
+            <span class="player-number">5</span>
+            <img src="assets/player-headshots/malik-beasley.png" alt="Malik Beasley" />
+            <span class="player-name">Malik Beasley</span>
+        </div>
+        <div class="player-item" data-player-id="harrito02">
+            <span class="player-number">12</span>
+            <img src="assets/player-headshots/tobias-harris.png" alt="Tobias Harris" />
+            <span class="player-name">Tobias Harris</span>
+        </div>
+        <div class="player-item" data-player-id="durenja01">
+            <span class="player-number">0</span>
+            <img src="assets/player-headshots/jalen-duren.png" alt="Jalen Duren" />
+            <span class="player-name">Jalen Duren</span>
+        </div>
+        <div class="player-item" data-player-id="sassema01">
+            <span class="player-number">25</span>
+            <img src="assets/player-headshots/marcus-sasser.png" alt="Marcus Sasser" />
+            <span class="player-name">Marcus Sasser</span>
+        </div>
+        <div class="player-item" data-player-id="hardati02">
+            <span class="player-number">8</span>
+            <img src="assets/player-headshots/tim-hj.png" alt="Tim Hardaway Jr." />
+            <span class="player-name">Tim Hardaway Jr.</span>
+        </div>
+        <div class="player-item" data-player-id="thompau01">
+            <span class="player-number">9</span>
+            <img src="assets/player-headshots/ausar-thompson.png" alt="Ausar Thompson" />
+            <span class="player-name">Ausar Thompson</span>
+        </div>
+        <div class="player-item" data-player-id="fontesi01">
+            <span class="player-number">19</span>
+            <img src="assets/player-headshots/simone-fontecchio.png" alt="Simone Fontecchio" />
+            <span class="player-name">Simone Fontecchio</span>
+        </div>
+        <div class="player-item" data-player-id="stewais01">
+            <span class="player-number">28</span>
+            <img src="assets/player-headshots/isaiah-stewart.png" alt="Isaiah Stewart" />
+            <span class="player-name">Isaiah Stewart</span>
+        </div>
+    </div>
+
+    <div id="player-overlay" class="overlay">
+        <div class="overlay-content">
+          <div class="overlay-left">
+            <h2 id="overlay-player-name"></h2>
+            <p>PPG: <span id="overlay-ppg"></span></p>
+            <p>RPG: <span id="overlay-rpg"></span></p>
+            <p>APG: <span id="overlay-apg"></span></p>
+            <p>SPG: <span id="overlay-spg"></span></p>
+            <p>BPG: <span id="overlay-bpg"></span></p>
+            <p>FG%: <span id="overlay-fgp"></span></p>
+            <p>3PT%: <span id="overlay-3ptp"></span></p>
+            <p>FT%: <span id="overlay-ftp"></span></p>
+          </div>
+          <div class="overlay-right">
+            <img />
+            <button class="close-btn" onclick="closeOverlay()">✖</button>
+          </div>
+        </div>
+    </div>
+</div><!-- end of team -->
+
+
+   <div class="content" id="standings">
+  <h1 id="screen-title">Standings</h1>
+  <div class="standings-container">
+    <div class="conference">
+      <h2>Eastern Conference</h2>
+      <table id="east-standings-table">
+        <thead>
+          <tr>
+            <th style="display: none;">Rank</th>
+            <th>Logo</th>
+            <th>Team</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Win %</th>
+            <th>Streak</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- JavaScript fills this section -->
+        </tbody>
+      </table>
+    </div>
+    <div class="conference">
+      <h2>Western Conference</h2>
+      <table id="west-standings-table">
+        <thead>
+          <tr>
+            <th style="display: none;">Rank</th>
+            <th>Logo</th>
+            <th>Team</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Win %</th>
+            <th>Streak</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- JavaScript fills this section -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div><!-- end of standings screen -->
+
+
+<div class="content" id="contacts">
+  <h1 id="screen-title">Around the Community</h1>
+  <h2 id="explanation">A collection of Pistons content from the 313 community. Websites, X feeds and Youtube channels can be found in the links below from the Organisation, Ku, Detroit Bad Boys & more... </h2>
+<h3 class="carousel-title">Websites</h3>
+<div class="carousel-container">
+  <div class="carousel-track">
+    <div class="carousel-item" onclick="window.open('https://www.nba.com/pistons/', '_blank')" id="dpnba">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://bullyball.net/', '_blank')" id="bbnet">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://www.detroitbadboys.com/', '_blank')" id="dbb">
+      <h3>Detroit Bad Boys</h3>
+          </div>
+    <div class="carousel-item" onclick="window.open('https://www.freep.com/sports/pistons/', '_blank')" id="dfp">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://bleacherreport.com/detroit-pistons', '_blank')" id="brp">
+      <h3>BR Pistons</h3>
+          </div>
+<!-- dupes for carousel -->
+    <div class="carousel-item" onclick="window.open('https://www.nba.com/pistons/', '_blank')" id="dpnba">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://bullyball.net/', '_blank')" id="bbnet">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://www.detroitbadboys.com/', '_blank')" id="dbb">
+      <h3>Detroit Bad Boys</h3>
+          </div>
+    <div class="carousel-item" onclick="window.open('https://www.freep.com/sports/pistons/', '_blank')" id="dfp">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://bleacherreport.com/detroit-pistons', '_blank')" id="brp">
+      <h3>BR Pistons</h3>
+          </div>
+<!-- more dupes -->
+    <div class="carousel-item" onclick="window.open('https://www.nba.com/pistons/', '_blank') " id="dpnba">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://bullyball.net/', '_blank')" id="bbnet">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://www.detroitbadboys.com/', '_blank')" id="dbb">
+      <h3>Detroit Bad Boys</h3>
+          </div>
+    <div class="carousel-item" onclick="window.open('https://www.freep.com/sports/pistons/', '_blank')" id="dfp">
+          </div>
+    <div class="carousel-item" onclick="window.open('https://bleacherreport.com/detroit-pistons', '_blank')" id="brp">
+      <h3>BR Pistons</h3>
+          </div>
+  </div>
+</div>
+
+<div class="link-sections">
+  <div class="left-links-container">
+    <h3 class="section-title">X Feeds</h3>
+    <div class="left-links">
+      <ul>
+        <li><a href="https://x.com/DetroitPistons" target="_blank">Detroit Pistons</a></li>
+        <li><a href="https://x.com/omarisankofa" target="_blank">Pistons Beat Writer</a></li>
+        <li><a href="https://x.com/KuKhahil" target="_blank">Ku Khahil</a></li>
+        <li><a href="https://x.com/realbullyball" target="_blank">BullyBall</a></li>
+        <li><a href="https://x.com/zariqxavier" target="_blank">Zariq from BullyBall</a></li>
+        <li><a href="https://x.com/PistonsMuse" target="_blank">Pistons Muse</a></li>        
+      </ul>
+    </div>
+  </div>
+  <div class="right-links-container">
+    <h3 class="section-title">YouTube Channels</h3>
+    <div class="right-links">
+      <ul>
+        <li><a href="https://www.youtube.com/@PistonsTV" target="_blank">Pistons TV</a></li>
+        <li><a href="https://www.youtube.com/@LockedOnPistons" target="_blank">LockedOn Pistons</a></li>
+        <li><a href="https://www.youtube.com/@kukhahil" target="_blank">Ku's Analysis</a></li>
+        <li><a href="https://www.youtube.com/@PistonsTalk" target="_blank">Pistons Talk</a></li>
+        <li><a href="https://www.youtube.com/@NBA" target="_blank">NBA Highlights</a></li>
+        <li><a href="https://www.youtube.com/@WoodwardPistons" target="_blank">Woodward Pistons</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+</main>
+
+  <script src="scroll.js"></script>
+  <script src="script.js"></script>
+  <script src="fixtures.js"></script>
+  <script src="last-year-stats.js"></script>
+  <script src="standings.js"></script>
+
+</body>
+</html>

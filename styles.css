@@ -1,0 +1,517 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 10px #1D428A;
+    background-color: rgba(200, 16, 46, 0.9);
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    padding: 0 30px;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 5px 5px 5px #000;
+}
+
+.navbar nav a:hover {
+    color: #1D428A;
+    font-size: 25px;
+}
+
+
+/* Custom scrollbar styling */
+.games-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.games-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.games-container::-webkit-scrollbar-thumb {
+    background-color: rgba(200, 16, 46, 0.6);
+    border-radius: 10px;
+}
+
+.games-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(200, 16, 46, 0.9);
+}
+
+.games-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(200, 16, 46, 0.5) transparent;
+}
+
+
+/* General Content Styling */
+.content {
+    height: calc(100vh - 12vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    scroll-margin-top: 12vh;
+    box-sizing: border-box;
+    margin-bottom: 12vh;
+}
+
+.content#home {
+    margin-top: 12vh; 
+    padding-top: 0;
+    background-image: url('assets/arena2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#screen-title {
+    color: #1D428A;
+    font-family: 'Dancing Script', cursive;
+    font-size: 80px;
+    text-shadow: 5px 5px 5px #C8102E;
+    margin-bottom: 20px;
+}
+
+
+/* Styling specifically for the home subtitle */
+.content#home h1 {
+    color: #fff;
+    background-color: rgb(0 0 0 / .2);
+}
+
+.content#home h2 {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}
+
+.content#home h3 {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    font-size: 1.5em;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+
+/* Fixture Bar */
+.fixture-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.fixtures {
+    width: 50%;
+    padding: 10px;
+}
+
+.games-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.fixture-box {
+    flex: 0 0 150px;
+    scroll-snap-align: start;
+}
+
+.fixture-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.fixture-team img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.fixture-score {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(100, 100, 100 / 1.0);
+    text-align: center;
+}
+
+.fixture-status {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/* Team page */
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.player-item {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.player-number {
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    font-size: 15em;
+    color: rgba(200, 16, 46, 0.15);
+    z-index: 1;
+    pointer-events: none;
+    font-family: "Fjalla One", serif;
+    font-weight: bold;
+}
+
+.player-item img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.player-item img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.player-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    z-index: 3; /* Ensure name is above the number */
+}
+
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+
+/* Overlay content animation */
+@keyframes scaleUp {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.overlay-content {
+    background: #1D428A;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50vw; 
+    height: 80vh;
+    display: flex; 
+    gap: 20px; 
+    text-align: left;
+    font-family: Roboto, sans-serif;
+    animation: scaleUp 0.3s ease-out;
+}
+
+.overlay-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px; 
+}
+
+.overlay-left h2, 
+.overlay-left p {
+    margin: 10px 0; 
+    text-align: center;
+}
+
+.overlay-right {
+    flex: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    padding: 0 20px; 
+    position: relative;
+}
+
+.overlay-right img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    border: solid 5px;
+    border-color: rgba(200, 16, 46, 0.9);
+}
+
+.overlay-content p, .overlay-content span {
+    color: white;
+}
+.overlay-content span {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+.overlay-content h2 {
+    font-family: 'Dancing Script', cursive;
+    color: rgba(200, 16, 46, 0.9);
+    text-decoration: underline;
+    text-decoration-color: white;
+    font-size: 3vh;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #C8102E;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding-top: 10px;
+    padding-right: 30px;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: #A00;
+}
+
+
+/* Standings screen content */
+.content#standings {
+    height: auto;
+}
+
+.standings-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.conference {
+    width: 45%;
+}
+
+.conference h2 {
+    text-align: center;
+    color: #1D428A;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-decoration-color: #C8102E;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px #C8102E;
+    box-shadow: 3px 3px 3px #1D428A;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+}
+
+th {
+    background-color: #C8102E;
+    color: #fff;
+}
+
+
+img {
+    height: 50px;
+}
+
+
+/* Contacts screen content */
+#explanation {
+    width: 80%;
+    padding-bottom: 5px;
+}
+
+.carousel-container {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #1D428A;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(200, 16, 46, 0.9);
+}
+
+.carousel-container:hover .carousel-track{
+    animation-play-state: paused;
+}
+
+.carousel-title {
+    color: rgba(200, 16, 46, 0.9);
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.carousel-track {
+  display: flex;
+  animation: 10s slide infinite linear;
+}
+
+.carousel-item {
+  min-width: 250px;
+  margin: 20px;
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 2px #fff;
+  padding: 20px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 2px 2px 2px #000;
+}
+
+#dpnba {
+    background-image: url('assets/logo.png');
+}
+
+#bbnet {
+    background-image: url('assets/bullyball.png');
+    color: black;
+    text-shadow: 2px 2px 2px #fff;
+}
+
+#dbb {
+    background-image: url('assets/badboys.png');
+}
+
+#dfp {
+    background-image: url('assets/dfp.png');
+}
+
+#brp {
+    background-image: url('assets/br.png');
+}
+
+.carousel-item:hover {
+  transform: scale(1.2);
+}
+
+@keyframes slide {
+    from {
+        transform: translate(0);
+    }
+    to {
+        transform: translate(-107%);
+    }
+}
+
+.link-sections {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.left-links-container, .right-links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+}
+
+.section-title {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: rgba(200, 16, 46, 0.9);
+}
+
+.left-links, .right-links {
+  background: #1D428A;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(200, 16, 46, 0.9);
+  width: 100%;
+}
+
+.left-links ul, .right-links ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.left-links li, .right-links li {
+  margin-bottom: 10px;
+}
+
+.left-links a, .right-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.left-links a:hover, .right-links a:hover {
+  color: #C8102E;
+}
